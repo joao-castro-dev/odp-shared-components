@@ -15,15 +15,15 @@ const components = fs
     );
 
 export default components.map((component) => ({
-    input: `src/components/${component}/index.js`,
+    input: `src/components/${component}/index.ts`,
     output: [
         {
-            file: `dist/components/${component}/index.js`,
+            file: `dist/components/${component}/index.ts`,
             format: "cjs",
             exports: "named",
         },
         {
-            file: `dist/components/${component}/index.es.js`,
+            file: `dist/components/${component}/index.es.ts`,
             format: "es",
             exports: "named",
         },
