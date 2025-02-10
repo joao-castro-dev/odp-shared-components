@@ -1,6 +1,6 @@
 {
     "name": "odp-shared-components",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "author": "Carlos Vinicius Ananias",
     "reveal": true,
     "main": "dist/index.ts",
@@ -14,7 +14,7 @@
         "deploy": "npm run build && npm publish --access public"
     },
     "peerDependencies": {
-        "prop-types": "^15.5.4",
+        "prop-types": "^15.8.1",
         "react": "^0.14.9 || ^15.0.0 || ^16.0.0",
         "react-dom": "^0.14.9 || ^15.0.0 || ^16.0.0"
     },
