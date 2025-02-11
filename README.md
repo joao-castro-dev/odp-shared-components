@@ -1,4 +1,4 @@
-# odp-shared-components-poc
+# odp-shared-components
 
 A collection of reusable React components.
 
@@ -23,7 +23,7 @@ A collection of reusable React components.
 To install in your project:
 
 ```sh
-npm install odp-shared-components-poc --legacy-peer-deps
+npm install odp-shared-components --legacy-peer-deps
 ```
 
 ## Usage
