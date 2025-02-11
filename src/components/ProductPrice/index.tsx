@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./productPrice.module.css";
 import { ProductPriceProps } from "../../types/productPrice";
 
@@ -14,4 +12,4 @@ const ProductPrice = ({
   );
 };
 
-export { ProductPrice };
+export default ProductPrice;

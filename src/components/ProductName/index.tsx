@@ -1,15 +1,9 @@
-import styles from "./productName.module.css";
-import { ProductNameProps } from "../../types/productName";
-
-const ProductName = ({
-  name,
-  className
-}: ProductNameProps) => {
+const ProductName = () => {
   return (
-    <div className={`${className} ${styles.name}`}>
-      <p>{name}</p>
+    <div>
+      <p>Teste</p>
     </div>
   );
 };
 
-export { ProductName };
+export default ProductName;
