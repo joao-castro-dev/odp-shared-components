@@ -1,20 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import styles from "./styles.module.css";
+import styles from "./productPrice.module.css";
+import { ProductPriceProps } from "../../types/productPrice";
 
-interface ProductPriceProps {
-  value: string;
-  className?: string;
-}
-
-const ProductPrice: React.FC<ProductPriceProps> = ({ value, className }) => {
-  return <p className={`${styles.title} ${className}`}>{value}</p>;
+const ProductPrice = ({
+  price,
+  className
+}: ProductPriceProps) => {
+  return (
+    <div className={`${className} ${styles.price}`}>
+      <p>{price}</p>
+    </div>
+  );
 };
 
-ProductPrice.propTypes = {
-  value: PropTypes.string,
-  className: PropTypes.string,
-};
-
-export default ProductPrice;
+export { ProductPrice };

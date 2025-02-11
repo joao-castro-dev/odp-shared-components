@@ -1,2 +1,7 @@
-export { default as ProductName } from "./components/ProductName";
-export { default as ProductPrice } from "./components/ProductPrice";
+import { ProductName } from "./components/ProductName";
+import { ProductPrice } from "./components/ProductPrice";
+
+export {
+  ProductName,
+  ProductPrice
+};

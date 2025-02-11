@@ -1,20 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import styles from "./productName.module.css";
+import { ProductNameProps } from "../../types/productName";
 
-import styles from "./styles.module.css";
-
-interface ProductNameProps {
-    name: string;
-    className?: string;
-}
-
-const ProductName: React.FC<ProductNameProps> = ({ name, className }) => {
-    return <h1 className={`${styles.title} ${className}`}>{name}</h1>;
+const ProductName = ({
+  name,
+  className
+}: ProductNameProps) => {
+  return (
+    <div className={`${className} ${styles.name}`}>
+      <p>{name}</p>
+    </div>
+  );
 };
 
-ProductName.propTypes = {
-    name: PropTypes.string,
-    className: PropTypes.string,
-};
-
-export default ProductName;
+export { ProductName };
