@@ -1,7 +1,9 @@
+import { Button } from "@faststore/ui";
+
 const ProductName = () => {
   return (
     <div>
-      <p>Teste</p>
+      <Button>BORA</Button>
     </div>
   );
 };
