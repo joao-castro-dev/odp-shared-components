@@ -25,8 +25,9 @@ export function ProductDetails({
   productContext,
   cart,
   useBuyButton,
+  onInvalidQuantity,
 }: ProductDetailsProps) {
-  const [isInCart, setIsInCart] = useState(false);
+  const [isInCart, setIsInCart] = React.useState(false);
 
   const {
     id,
@@ -110,6 +111,7 @@ export function ProductDetails({
             buyProps={buyProps}
             sku={sku}
             quantity={quantity}
+            onInvalidQuantity={onInvalidQuantity}
           />
           <CustomProductAddToList buttonTitle="Add To List" />
           <CustomProductSubscription buttonTitle="Subscribe" />

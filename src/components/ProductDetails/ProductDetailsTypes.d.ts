@@ -73,6 +73,7 @@ export interface ProductDetailsProps {
   //   "data-sku": string;
   //   "data-seller": string;
   // };
+  onInvalidQuantity: any;
 }
 
 // faststore core types

@@ -8,4 +8,6 @@ export interface CustomProductQuantitySelectorProps {
   buyProps: Object;
   sku: string;
   quantity: number;
+  // REVIEW LATER
+  onInvalidQuantity: any;
 }

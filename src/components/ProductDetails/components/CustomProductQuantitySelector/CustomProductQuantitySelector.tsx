@@ -1,6 +1,6 @@
 import { CustomProductQuantitySelectorProps } from "./CustomProductQuantitySelectorTypes";
 
-import { Icon, BuyButton, QuantitySelector, useUI } from "@faststore/ui";
+import { Icon, BuyButton, QuantitySelector } from "@faststore/ui";
 
 import AddToCartLoadingSkeleton from "../../utils/AddToCartLoadingSkeleton";
 
@@ -18,9 +18,8 @@ export function CustomProductQuantitySelector({
   buyProps,
   sku,
   quantity,
+  onInvalidQuantity,
 }: CustomProductQuantitySelectorProps) {
-  const { pushToast } = useUI();
-
   const handleRedirect = () => {
     const baseUrl = "/checkout";
     const params = new URLSearchParams({
@@ -48,7 +47,7 @@ export function CustomProductQuantitySelector({
         unitMultiplier={useUnitMultiplier ? unitMultiplier ?? 1 : 1}
         useUnitMultiplier={useUnitMultiplier}
         onValidateBlur={(min: number, maxValue: number, quantity: number) => {
-          pushToast({
+          onInvalidQuantity({
             title: "Invalid quantity!",
             message: `The quantity you entered is outside the range of ${min} to ${maxValue}. The quantity was set to ${quantity}.`,
             status: "INFO",
