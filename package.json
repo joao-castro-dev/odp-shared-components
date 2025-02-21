@@ -1,6 +1,6 @@
 {
   "name": "@joao-castro-dev/odp-shared-components",
-  "version": "0.12.18",
+  "version": "0.12.19",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -29,8 +29,6 @@
     "@types/react-dom": "^18.2.42",
     "postcss": "^8.5.2",
     "postcss-scss": "^4.0.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "rollup": "^4.34.6",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^6.1.1",
