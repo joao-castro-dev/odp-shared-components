@@ -1,7 +1,3 @@
-import ProductName from "./components/ProductName";
-import ProductPrice from "./components/ProductPrice";
+import ProductDetails from "./components/ProductDetails";
 
-export {
-  ProductName,
-  ProductPrice
-};
+export { ProductDetails };

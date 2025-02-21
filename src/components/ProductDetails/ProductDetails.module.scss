@@ -1,0 +1,100 @@
+.productDetails {
+  // REVIEW LATER
+  // @import "~@faststore/ui/src/components/atoms/Button/styles.scss";
+
+  [data-fs-product-details-values] {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    [data-fs-product-details-values-controls] {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 8px;
+
+      [data-fs-quantity-selector] {
+        border: 1px solid var(--fs-color-odp-blue-0);
+        flex-basis: 40%;
+        border-radius: 0.25rem;
+
+        [data-fs-button][data-fs-button-variant="tertiary"] {
+          width: 20%;
+          padding: 0;
+
+          [data-fs-button-wrapper] {
+            --fs-button-icon-padding: 0;
+          }
+
+          &:hover,
+          &:active,
+          &:focus,
+          &:disabled {
+            [data-fs-button-wrapper] {
+              background-color: var(--fs-navbar-links-bkg-color);
+            }
+          }
+        }
+
+        [data-quantity-selector-button="right"] {
+          border-left: 1px solid var(--fs-color-odp-blue-0);
+        }
+
+        [data-quantity-selector-button="left"] {
+          border-right: 1px solid var(--fs-color-odp-blue-0);
+        }
+
+        [data-fs-input] {
+          border: none;
+        }
+      }
+
+      [data-fs-product-details-buy-button] {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 60%;
+        width: 100%;
+
+        [data-fs-button][data-fs-button-variant="primary"] {
+          margin: 0;
+        }
+
+        [data-fs-button][data-testid="buy-button"] {
+          border-radius: 0.25rem;
+          border: 1px solid var(--fs-color-odp-blue-0);
+          width: 100%;
+          margin: 0;
+
+          [data-fs-button-wrapper] {
+            background-color: var(--fs-color-odp-blue-0);
+            color: var(--fs-color-odp-white);
+
+            &:hover {
+              background-color: var(--fs-color-odp-blue-3);
+              color: var(--fs-color-odp-white);
+            }
+          }
+
+          &.isInCart {
+            [data-fs-button-wrapper],
+            [data-fs-button-wrapper]:hover {
+              background-color: var(--fs-color-odp-white);
+              color: var(--fs-color-odp-blue-0);
+            }
+          }
+        }
+      }
+
+      [data-fs-product-details-is-in-cart] {
+        margin-bottom: 4px;
+        font-size: var(--fs-text-size-0);
+        align-self: flex-end;
+        color: var(--fs-color-odp-green);
+      }
+    }
+  }
+
+  [data-fs-buy-button-disabled] {
+    width: 100%;
+  }
+}
