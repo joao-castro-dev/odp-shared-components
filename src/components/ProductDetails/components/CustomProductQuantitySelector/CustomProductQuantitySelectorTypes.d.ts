@@ -8,6 +8,12 @@ export interface CustomProductQuantitySelectorProps {
   buyProps: Object;
   sku: string;
   quantity: number;
-  // REVIEW LATER
-  onInvalidQuantity: any;
+  onInvalidQuantity: (data: OnInvalidRequestProps) => void;
+}
+
+interface OnInvalidRequestProps {
+  title: string;
+  message: string;
+  status: "ERROR" | "WARNING" | "INFO";
+  icon: React.ReactNode;
 }

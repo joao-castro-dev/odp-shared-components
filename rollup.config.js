@@ -6,6 +6,7 @@ import dts from "rollup-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import sass from "sass";
+import autoprefixer from "autoprefixer";
 
 const packageJson = require("./package.json");
 
@@ -31,12 +32,21 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       // terser(),
       postcss({
+        plugins: [autoprefixer],
+        extensions: [".sass", ".scss", ".css"],
         extract: true,
-        minimize: true,
+        // minimize: true,
         sourceMap: true,
-        extensions: [".scss", ".css"],
         parser: require("postcss-scss"),
-        use: [["sass", { implementation: sass }]],
+        use: [
+          [
+            "sass",
+            {
+              includePath: ["./src"],
+              implementation: sass,
+            },
+          ],
+        ],
       }),
     ],
     external: ["react", "react-dom", "react/jsx-runtime"],
