@@ -30,12 +30,11 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      // terser(),
+      terser(),
       postcss({
         plugins: [autoprefixer],
         extensions: [".sass", ".scss", ".css"],
-        extract: true,
-        // minimize: true,
+        minimize: true,
         sourceMap: true,
         parser: require("postcss-scss"),
         use: [
