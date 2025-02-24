@@ -15,6 +15,8 @@ export interface ProductDetailsProps {
   listPrice: number;
   unitMultiplier: number;
   buyButtonTitle: string;
+  isInCartButtonTitle?: string;
+  isInCartMessage?: string;
   buyButtonIcon: {
     alt: string;
     icon: string;
@@ -45,6 +47,7 @@ export interface ProductDetailsProps {
   }>;
   cart: Cart;
   onInvalidQuantity: (data: OnInvalidRequestProps) => void;
+  className?: string;
 }
 
 interface OnInvalidRequestProps {

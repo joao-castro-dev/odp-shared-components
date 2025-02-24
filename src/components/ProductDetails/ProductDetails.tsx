@@ -21,6 +21,8 @@ export function ProductDetails({
   listPrice,
   unitMultiplier,
   buyButtonTitle,
+  isInCartButtonTitle,
+  isInCartMessage,
   isValidating,
   quantity,
   setQuantity,
@@ -30,6 +32,7 @@ export function ProductDetails({
   cart,
   buyProps,
   onInvalidQuantity,
+  className,
 }: ProductDetailsProps) {
   const [isInCart, setIsInCart] = React.useState(false);
 
@@ -49,7 +52,7 @@ export function ProductDetails({
   }, [cart]);
 
   return (
-    <section className={styles.productDetails}>
+    <section className={`${className} ${styles.productDetails}`}>
       {!outOfStock ? (
         <section data-fs-product-details-values>
           <CustomProductPrice
@@ -60,6 +63,8 @@ export function ProductDetails({
           />
           <CustomProductQuantitySelector
             buyButtonTitle={buyButtonTitle}
+            isInCartButtonTitle={isInCartButtonTitle}
+            isInCartMessage={isInCartMessage}
             isValidating={isValidating}
             setQuantity={setQuantity}
             useUnitMultiplier={useUnitMultiplier}

@@ -1,5 +1,7 @@
 export interface CustomProductQuantitySelectorProps {
   buyButtonTitle: string;
+  isInCartButtonTitle?: string;
+  isInCartMessage?: string;
   isValidating: boolean;
   setQuantity: Dispatch<SetStateAction<number>>;
   useUnitMultiplier?: boolean;

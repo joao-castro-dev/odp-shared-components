@@ -1,5 +1,5 @@
 .productDetails {
-  // This import is necessary because without it the app doesn't fing the focus-ring mixin
+  // This import is necessary because without it the app doesn't find the focus-ring mixin
   @import "~@faststore/ui/src/styles/base/utilities.scss";
 
   @import "~@faststore/ui/src/components/atoms/Button/styles.scss";

@@ -13,14 +13,14 @@ export function CustomProductPrice({
       {hasPromotion ? (
         <div data-fs-product-details-promotion>
           <span data-fs-product-details-promotion-price>
-            {`$${listPrice} Sale`}
+            {`$${listPrice.toFixed(2)} Sale`}
           </span>
           <div data-fs-product-details-promotion-wrapper>
             <span data-fs-product-details-promotion-original>
               {`Reg. $${price}`}
             </span>
             <span data-fs-product-details-promotion-savings>
-              {`(You save $${listPrice - price})`}
+              {`(You save $${(listPrice - price).toFixed(2)})`}
             </span>
           </div>
         </div>

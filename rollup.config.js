@@ -49,11 +49,12 @@ export default [
         ],
       }),
     ],
-    external: ["react", "react-dom", "react/jsx-runtime"],
+    external: ["react", "react-dom"],
   },
   {
     input: "src/index.ts",
     output: [{ file: packageJson.types }],
     plugins: [dts.default()],
+    external: [/\.css/, /\.scss/, /\.sass/],
   },
 ];

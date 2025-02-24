@@ -1,8 +1,6 @@
 import { CustomProductQuantitySelectorProps } from "./CustomProductQuantitySelectorTypes";
 
-import { Icon, BuyButton, QuantitySelector } from "@faststore/ui";
-
-import AddToCartLoadingSkeleton from "../../utils/AddToCartLoadingSkeleton";
+import { Icon, BuyButton, QuantitySelector, Skeleton } from "@faststore/ui";
 
 import { getCookie } from "../../../../utils/getCookie";
 
@@ -10,6 +8,8 @@ import styles from "./CustomProductQuantitySelector.module.scss";
 
 export function CustomProductQuantitySelector({
   buyButtonTitle,
+  isInCartButtonTitle,
+  isInCartMessage,
   isValidating,
   setQuantity,
   useUnitMultiplier = false,
@@ -56,20 +56,18 @@ export function CustomProductQuantitySelector({
         }}
       />
       {isValidating ? (
-        <AddToCartLoadingSkeleton />
+        <Skeleton size={{ width: "100%", height: "48px" }} />
       ) : (
         <div data-fs-product-details-buy-button>
           {isInCart && (
-            <p data-fs-product-details-is-in-cart>
-              This item is already in cart
-            </p>
+            <p data-fs-product-details-is-in-cart>{isInCartMessage}</p>
           )}
           <div onClick={() => handleRedirect()}>
             <BuyButton
               className={isInCart ? styles.isInCart : ""}
               {...buyProps}
             >
-              {isInCart ? "Add again" : buyButtonTitle || "Add to Cart"}
+              {isInCart ? isInCartButtonTitle : buyButtonTitle}
             </BuyButton>
           </div>
         </div>
