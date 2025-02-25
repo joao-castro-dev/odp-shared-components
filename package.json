@@ -1,6 +1,6 @@
 {
   "name": "@joao-castro-dev/odp-shared-components",
-  "version": "0.12.34",
+  "version": "0.12.38",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -24,6 +24,8 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
     "@types/css-modules": "^1.0.5",
+    "@types/draft-js": "^0.11.18",
+    "@types/draftjs-to-html": "^0.8.4",
     "@types/node": "^18.11.16",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.42",
@@ -42,6 +44,10 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "repository": {
