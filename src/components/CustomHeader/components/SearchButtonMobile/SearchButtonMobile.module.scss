@@ -1,0 +1,156 @@
+.search {
+  &__modal {
+    &__input {
+      background: var(--fs-color-main-1) url(../../../../assets/textureODP.webp)
+        repeat;
+      min-height: 105px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      [data-fs-search-input-field] {
+        display: flex;
+        background-color: var(--fs-color-odp-white);
+        border-radius: 6px;
+        margin-top: 40px;
+        margin-left: 15px;
+        width: -webkit-fill-available;
+        margin-right: 20px;
+
+        [data-fs-input] {
+          min-width: 270px;
+          min-height: 35px;
+          width: -webkit-fill-available;
+          border-radius: 6px;
+          border-color: transparent;
+          border-right-color: var(--fs-color-odp-blue-3);
+          border-right-width: 1px;
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          padding-left: 12px;
+        }
+
+        [data-fs-button] {
+          height: auto;
+          background-color: var(--fs-color-odp-white);
+          border-bottom-right-radius: 7px;
+          border-top-right-radius: 7px;
+        }
+      }
+
+      [data-fs-search-dropdown] {
+        width: -webkit-fill-available;
+        background-color: var(--fs-color-odp-white);
+        margin-top: 10px;
+
+        [data-fs-search-history] {
+          [data-fs-search-history-header] {
+            padding: 16px 0px 10px 16px;
+          }
+          [data-fs-list] {
+            padding-left: 17px;
+            border-bottom: 1px solid var(--fs-color-odp-off-white-5);
+
+            [data-fs-search-history-item] {
+              min-height: 38px;
+              display: flex;
+              align-items: center;
+
+              [data-fs-link] {
+                text-decoration: none;
+                color: var(--fs-color-odp-gray-2);
+                font-size: 0.85rem;
+              }
+            }
+          }
+        }
+
+        [data-fs-search-top] {
+          [data-fs-search-top-header] {
+            padding: 16px 0px 10px 16px;
+
+            [data-fs-search-top-title] {
+              font-size: 1rem;
+              font-weight: bold;
+            }
+          }
+
+          [data-fs-list] {
+            padding-left: 17px;
+
+            [data-fs-search-top-item] {
+              min-height: 38px;
+              display: flex;
+              align-items: center;
+
+              [data-fs-link] {
+                text-decoration: none;
+                color: var(--fs-color-odp-gray-2);
+                font-size: 0.85rem;
+
+                [data-fs-badge] {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        [data-fs-search-auto-complete] {
+          [data-fs-list] {
+            padding-left: 17px;
+            border-bottom: 1px solid var(--fs-color-odp-off-white-5);
+
+            [data-fs-search-auto-complete-item] {
+              min-height: 38px;
+              display: flex;
+              align-items: center;
+
+              [data-fs-link] {
+                text-decoration: none;
+                color: var(--fs-color-odp-gray-2);
+                font-size: 0.85rem;
+              }
+            }
+          }
+        }
+
+        [data-fs-search-products] {
+          [data-fs-search-products-header] {
+            padding: 16px 0px 10px 16px;
+
+            [data-fs-search-products-title] {
+              font-size: 1rem;
+              font-weight: bold;
+            }
+          }
+
+          [data-fs-list] {
+            padding-left: 17px;
+
+            [data-fs-search-product-item] {
+              min-height: 38px;
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+
+              [data-fs-link] {
+                display: flex;
+                font-weight: bold;
+                text-decoration: none;
+                color: var(--fs-color-odp-gray-2);
+                font-size: 0.85rem;
+
+                [data-fs-search-product-item-content] {
+                  width: -webkit-fill-available;
+                  margin-left: 15px;
+                  margin-right: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "~@faststore/ui/src/styles/base/utilities.scss";
+
+// Overwrites Breakpoints & Mixins ////////////////////
+
+$breakpoints: (
+  "phone": 320px,
+  "phonemid": 375px,
+  "phonelg": 576px,
+  "tablet": 768px,
+  "notebooksm": 1024px,
+  "notebook": 1280px,
+  "desktop": 1500px,
+);

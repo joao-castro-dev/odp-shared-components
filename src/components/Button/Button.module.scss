@@ -1,0 +1,19 @@
+.button[data-fs-button] {
+  text-align: center;
+  cursor: pointer;
+
+  [data-fs-button-wrapper] {
+    --fs-button-primary-bkg-color: var(--fs-color-odp-blue-2);
+    --fs-button-primary-text-color: var(--fs-color-odp-white);
+
+    --fs-button-primary-bkg-color-hover: var(--fs-color-odp-yellow);
+    --fs-button-primary-text-color-hover: var(--fs-color-odp-black);
+
+    --fs-button-border-width: 1px;
+    --fs-button-border-radius: 4px;
+    --fs-button-border-color: var(--fs-color-odp-blue-0);
+
+    --fs-button-text-size: var(--fs-text-size-0);
+    --fs-button-text-weight: var(--fs-text-weight-regular);
+  }
+}

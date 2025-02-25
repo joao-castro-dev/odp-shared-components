@@ -1,0 +1,76 @@
+@import "./utils/Utils.module.scss";
+.section {
+  position: sticky;
+  top: 0;
+  z-index: var(--fs-z-index-high);
+}
+
+.mainHeader {
+  background: var(--fs-color-main-1) url(../../assets/textureODP.webp) repeat;
+  padding: 0 var(--fs-spacing-4);
+
+  @include media("<notebook") {
+    &__content {
+      padding: 0 var(--fs-spacing-3);
+    }
+  }
+
+  @include media("<=notebooksm") {
+    padding-right: 5px;
+    padding-left: 5px;
+    &__regionBar {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+
+    [data-fs-search-input] {
+      margin: 0 var(--fs-spacing-4);
+      width: 100%;
+    }
+
+    &__content {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__search {
+    [data-fs-search-input-field] [data-fs-search-input-field-input] {
+      background-color: var(--fs-color-odp-white);
+      border-radius: 0.25rem;
+      border: 1px solid vat(--fs-color-odp-gray-1) !important;
+      color: var(--fs-color-main-6);
+      font-size: var(--fs-text-size-2);
+      padding-left: 20px;
+      padding-right: var(--fs-input-padding);
+    }
+
+    [data-fs-search-input-field] {
+      // --------------------------------------------------------
+      // Design Tokens for Search Input Field
+      // --------------------------------------------------------
+      --fs-search-input-field-height-mobile: 40px;
+      --fs-search-input-field-height-desktop: 35px;
+      --fs-search-input-field-button-min-height: 35px;
+    }
+
+    [data-fs-search-input-field] [data-fs-icon-button] {
+      // "important" Necessary to Override FS's default styling
+      position: absolute !important;
+      top: 0;
+    }
+
+    [data-testid="fs-search-button"] {
+      width: 44px;
+      height: 44px;
+      top: -4px;
+    }
+  }
+}

@@ -1,0 +1,189 @@
+// This import is necessary because without it the app doesn't find some mixins
+@import "../../../../utils/baseStyles.module.scss";
+
+.navbarButtons {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    margin: 0 var(--fs-spacing-1);
+    display: flex;
+    align-items: center;
+
+    [data-fs-icon] {
+      color: var(--fs-color-main-6);
+    }
+
+    [data-fs-badge][data-fs-badge-counter="true"] [data-fs-badge-wrapper] {
+      background-color: var(--fs-color-main-6);
+    }
+
+    &__text {
+      margin-left: 10px;
+      color: var(--fs-color-odp-white);
+      font-size: var(--fs-text-size-1);
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    &__icon {
+      &[data-icon="account"] {
+        border: 1px solid var(--fs-color-odp-white);
+        border-radius: 100%;
+      }
+    }
+
+    &Cart {
+      width: auto;
+      margin-right: -10px;
+
+      [data-fs-button-wrapper] {
+        padding: 0 10px;
+      }
+
+      .cartQty {
+        background-color: var(--fs-color-odp-yellow);
+        color: var(--fs-color-odp-black);
+        display: block;
+        font-size: 0.6rem;
+        position: absolute;
+        border-radius: 100%;
+        right: 0;
+        top: 50%;
+        margin-top: -10px;
+        padding: 0.15rem 0.5rem;
+      }
+    }
+  }
+}
+
+.navButtons {
+  &__item {
+    @include media("<notebook") {
+      &__item {
+        display: none;
+      }
+    }
+    display: flex;
+
+    &__contact {
+      @include media("<=notebooksm") {
+        display: none;
+      }
+    }
+
+    &__contactLabel {
+      display: none;
+    }
+
+    &__relative {
+      position: relative;
+    }
+
+    &__itemCart {
+      @include media("<notebook") {
+        display: flex;
+      }
+
+      [data-fs-button] {
+        position: relative;
+        margin: 0 var(--fs-spacing-3);
+
+        .navButtons__item__text {
+          display: none;
+        }
+      }
+    }
+
+    [data-icon="account"] {
+      color: var(--fs-color-odp-white);
+    }
+
+    [data-icon="help"] {
+      width: 24px;
+      height: 24px;
+    }
+
+    &__login {
+      color: var(--fs-color-odp-white);
+    }
+
+    &__text__login {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 16px;
+      color: var(--fs-color-odp-white);
+      white-space: nowrap;
+
+      @include media("<notebooksm") {
+        display: none;
+      }
+    }
+  }
+}
+
+.cartQty {
+  display: flex;
+  padding: 2px 7px;
+  font-size: 0.65rem;
+  color: var(--fs-color-odp-black);
+  background-color: var(--fs-color-odp-yellow);
+  border-radius: 10px;
+  width: auto;
+  min-width: 20px;
+  height: 20px;
+  line-height: 1.5;
+  position: absolute;
+  top: 5px;
+  right: -11px;
+}
+
+.mainHeader__regionBar {
+  [data-fs-button-wrapper] > span {
+    display: flex;
+    align-items: center;
+    color: var(--fs-color-odp-white);
+    font-weight: bold;
+
+    [data-fs-region-bar-postal-code="true"] {
+      order: 1;
+      margin-left: 10px;
+    }
+  }
+
+  [data-fs-icon] {
+    margin-right: 10px;
+    min-width: 26px;
+  }
+
+  @include media(">=notebooksm") {
+    margin-right: var(--fs-spacing-3);
+    min-width: 138px;
+  }
+
+  @include media("<=notebooksm") {
+    display: none;
+  }
+}
+
+.theme [data-fs-navbar-links-list-item] [data-fs-link] {
+  color: var(--fs-color-odp-white);
+  font-weight: 500;
+}
+
+@include media(">notebooksm") {
+  .cartLabel {
+    display: none;
+  }
+
+  .cartIcon {
+    color: var(--fs-color-odp-white);
+  }
+
+  .section
+    [data-testid="data-fs-button-dropdown-link"][data-fs-link][data-fs-link-variant="display"]:visited,
+  .section
+    [data-testid="data-fs-button-dropdown-link"][data-fs-link][data-fs-link-variant="display"] {
+    color: var(--fs-color-odp-white);
+  }
+}
