@@ -1,0 +1,11 @@
+.productSugestions {
+  &__wrapper {
+    [data-fs-search-product-item] {
+      [data-fs-link] {
+        [data-fs-search-product-item-image] {
+          min-width: fit-content;
+        }
+      }
+    }
+  }
+}

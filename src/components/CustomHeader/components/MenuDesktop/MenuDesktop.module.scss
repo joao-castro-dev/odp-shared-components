@@ -1,0 +1,307 @@
+@import "../../../../utils/baseStyles.module.scss";
+
+.subMenu__item {
+  [data-fs-navbar-links-list-item] {
+    --fs-navbar-links-link-padding-notebook: 0 10px;
+  }
+
+  > [data-fs-navbar-links-list-item] {
+    width: auto;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:hover {
+      box-shadow: inset 0px -4px var(--fs-color-odp-off-white-2);
+    }
+
+    &.subMenu__itemOpen {
+      box-shadow: inset 0px -4px var(--fs-color-odp-orange);
+    }
+
+    > .navLink {
+      cursor: pointer;
+      font-weight: 800;
+      white-space: nowrap;
+      --fs-navbar-links-link-padding-notebook: 15px;
+      --fs-link-display-text-color: var(--fs-color-odp-white);
+      svg {
+        width: 16px;
+        margin-left: 10px;
+        transform: rotate(90deg);
+
+        path {
+          fill: var(--fs-color-odp-white);
+        }
+      }
+    }
+  }
+}
+
+.subMenu {
+  display: none;
+
+  &__item {
+    &[data-level="1"] {
+      height: 100%;
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &[data-level="2"],
+  &[data-level="3"] {
+    min-width: 250px;
+    border-radius: 0;
+    margin: 0;
+    position: absolute;
+    overflow: visible;
+    left: 0;
+    height: auto;
+  }
+
+  &[data-level="2"] {
+    top: 100%;
+    left: 0;
+    background-color: var(--fs-color-odp-white);
+    box-shadow: none;
+    flex-direction: column;
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background: var(--fs-color-odp-black);
+      z-index: -1;
+      opacity: 0.7;
+      margin: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &[data-level="3"] {
+    left: 100%;
+    top: 0;
+    background-color: var(--fs-color-odp-white);
+    min-height: 100%;
+    z-index: -1;
+    padding-left: 35px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    padding-right: 35px;
+    overflow-y: scroll;
+    height: -webkit-fill-available;
+    scrollbar-color: var(--fs-color-odp-blue-1) white;
+
+    &:hover {
+      display: flex;
+    }
+  }
+
+  &[data-level="4"] {
+    max-width: 250px;
+  }
+
+  &:has(.subMenu__item:hover) {
+    display: block;
+
+    &[data-level="2"],
+    &[data-level="3"] {
+      display: flex;
+    }
+  }
+
+  &:has(.subMenu__item) {
+    &[data-level="4"] {
+      min-height: unset;
+    }
+  }
+
+  &__item {
+    width: 100%;
+
+    [data-fs-navbar-links-list-item] {
+      padding: var(--fs-spacing-5) var(--fs-spacing-6);
+    }
+
+    .subMenu__item__levelTwo {
+      padding-top: 5px;
+      padding-bottom: 0px;
+      padding-right: 5px;
+      padding-left: 20px;
+      height: auto;
+    }
+
+    [data-fs-link] {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &[data-level="1"] {
+      position: relative;
+
+      [data-fs-link] {
+        // "important" to override .CustomHeader_section [data-fs-link][data-fs-link-variant=display] style
+        color: var(--fs-color-odp-white) !important;
+        align-items: center;
+      }
+    }
+
+    &[data-level="3"],
+    &[data-level="2"] {
+      padding: 0;
+      height: auto !important;
+
+      [data-fs-link] {
+        width: 100%;
+        min-width: 200px;
+        cursor: pointer;
+        font-size: var(--fs-text-size-1);
+        // "important" Necessary to Override FS's default styling
+        color: var(--fs-color-odp-blue-1) !important;
+        line-height: initial;
+        display: flex;
+        justify-content: space-between;
+
+        .menu__item__icon {
+          margin-top: 10px;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &[data-fs-button-dropdown-link-highlight="true"] {
+          font-weight: bold;
+        }
+      }
+
+      &[data-headtitle="true"] {
+        margin-bottom: var(--fs-spacing-3);
+      }
+    }
+
+    &[data-level="2"] {
+      padding-left: 20px;
+      min-height: 60px;
+      @include media("<notebook") {
+        min-height: 42px;
+        height: 42px;
+      }
+      display: flex;
+
+      &:hover {
+        background-color: var(--fs-color-odp-off-white-0);
+        color: var(--fs-color-odp-blue-1);
+        font-weight: 500;
+        > .subMenu {
+          font-weight: normal;
+          > .subMenu__col > .subMenu__item > .subMenu {
+            &[data-level="4"] {
+              display: block;
+            }
+          }
+        }
+      }
+
+      [data-fs-link] {
+        font-weight: normal;
+
+        &:has(+ .subMenu:hover) {
+          font-weight: 500;
+        }
+
+        &:hover {
+          font-weight: 500;
+        }
+      }
+    }
+
+    &[data-level="3"] {
+      [data-fs-link] {
+        font-weight: 500;
+
+        @include media("<notebook") {
+          padding-top: 0px;
+        }
+
+        &:has(+ .subMenu:hover) {
+          font-weight: 700;
+        }
+
+        &:hover {
+          font-weight: 700;
+          > .subMenu {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+
+    &[data-level="4"] {
+      padding-top: 5px;
+      padding-right: 10px;
+      padding-left: 0;
+      padding-bottom: 5px;
+      &:hover {
+        background-color: var(--fs-color-odp-off-white-0);
+      }
+
+      [data-fs-link] {
+        padding: 0.25rem !important;
+        font-weight: normal;
+
+        &:hover {
+          color: var(--fs-color-odp-blue-1);
+          font-weight: 500;
+        }
+      }
+    }
+
+    [data-fs-link]:hover {
+      ~ .subMenu {
+        display: block;
+
+        &[data-level="2"],
+        &[data-level="3"] {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    margin-right: var(--fs-spacing-7);
+
+    @include media("<notebook") {
+      max-width: 190px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__col .subMenu__item .navLink {
+    height: auto;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  font-weight: 800;
+  height: 100%;
+  padding: 0.5rem !important;
+  align-self: center;
+
+  &[data-level="4"] {
+    padding: 0.25rem !important;
+  }
+}

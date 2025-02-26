@@ -1,0 +1,32 @@
+// This import is necessary because without it the app doesn't find some mixins
+@import "../../../../utils/baseStyles.module.scss";
+
+.search {
+  &__wrapper {
+    [data-fs-search-input-field] {
+      [data-fs-button] {
+        height: fit-content;
+      }
+
+      [data-fs-input] {
+        &:hover:focus-visible,
+        &:focus-visible {
+          box-shadow: none;
+        }
+      }
+    }
+
+    @include media(">notebooksm") {
+      [data-fs-search-dropdown] {
+        // This important is necessary to override faststore's native search dropdown width
+        width: auto !important;
+      }
+    }
+    @include media(">desktop") {
+      [data-fs-search-dropdown] {
+        // This important is necessary to override faststore's native search dropdown width
+        width: -webkit-fill-available !important;
+      }
+    }
+  }
+}

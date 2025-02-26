@@ -1,0 +1,37 @@
+.searchHistory {
+  &[data-fs-search-history] {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  [data-fs-search-history-header] {
+    padding: 16px;
+    [data-fs-search-history-title] {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    [data-fs-button] {
+      display: none;
+    }
+  }
+
+  [data-fs-list] {
+    [data-fs-search-history-item] {
+      [data-fs-link] {
+        [data-fs-search-history-item-icon] {
+          display: none;
+        }
+      }
+
+      &:hover {
+        background-color: var(--fs-color-odp-off-white-6);
+        [data-fs-link] {
+          text-decoration: none;
+          span {
+            color: var(--fs-color-odp-blue-0);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

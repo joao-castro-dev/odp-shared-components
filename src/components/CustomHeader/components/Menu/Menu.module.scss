@@ -1,0 +1,25 @@
+.navLinks {
+  min-width: 580px; //temp - remove after task odpp-41 is merged
+  justify-content: center;
+  height: 100%;
+  display: flex;
+
+  &__desktop {
+    height: 100%;
+  }
+}
+
+.navLinks__mobile {
+  position: absolute;
+  width: 100%;
+  background: var(--fs-color-odp-white);
+  height: calc(100vh - 100%);
+}
+
+.menu {
+  --fs-navbar-links-list-padding-left-notebook: 0;
+  --fs-navbar-links-list-margin-left-notebook: 0;
+
+  display: flex;
+  align-items: center;
+}

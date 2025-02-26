@@ -1,0 +1,85 @@
+.level {
+  &__header {
+    padding-left: 26px;
+  }
+
+  &__item {
+    &__wrapper {
+      overflow: scroll;
+      max-height: 525px;
+    }
+
+    &__container {
+      // "importants" necessary to override .CustomHeader_section [data-fs-link] style
+      color: var(--fs-color-odp-blue-1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 7px 6px 50px !important;
+      border-top: 1px solid var(--fs-color-odp-off-white-0);
+      min-height: 50px !important;
+      text-decoration: none !important;
+      cursor: pointer;
+    }
+
+    &__title {
+      color: var(--fs-color-text-0);
+      font-size: 14px;
+    }
+
+    &__parent__link {
+      font-weight: bold;
+    }
+  }
+
+  &__one {
+    &__header {
+      background: var(--fs-color-main-1) url(../../../../assets/textureODP.webp)
+        repeat;
+      min-height: 90px;
+    }
+
+    &__item {
+      &__container {
+        // "importants" necessary to override .CustomHeader_section [data-fs-link] style
+        padding: 6px 7px 6px 25px !important;
+      }
+    }
+  }
+}
+
+.sub {
+  &__level {
+    &__header {
+      display: flex;
+      align-items: center;
+      background-color: var(--fs-color-odp-off-white-0);
+      padding-top: 12px;
+      padding-bottom: 12px;
+
+      &__title {
+        color: var(--fs-color-odp-gray-0);
+        font-size: 14px;
+        font-weight: bold;
+        padding-left: 3px;
+      }
+    }
+  }
+}
+
+.menu {
+  &__logo {
+    margin-top: 25px;
+  }
+
+  &__back__button {
+    display: flex;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+  }
+
+  &__next__level__button {
+    margin-top: 3px;
+  }
+}

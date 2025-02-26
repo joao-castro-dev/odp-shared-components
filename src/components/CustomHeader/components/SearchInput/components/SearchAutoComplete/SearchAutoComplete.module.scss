@@ -1,0 +1,39 @@
+.autocomplete {
+  &__title {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 16px 0px 10px 16px;
+  }
+
+  [data-fs-search-auto-complete] {
+    padding: 0;
+    [data-fs-list] {
+      [data-fs-search-auto-complete-item] {
+        [data-fs-link] {
+          [data-fs-search-auto-complete-item-icon] {
+            display: none;
+          }
+          p {
+            font-weight: bold;
+            color: var(--fs-color-odp-black);
+            [data-fs-search-auto-complete-item-suggestion] {
+              font-weight: normal;
+            }
+          }
+        }
+
+        &:hover {
+          background-color: var(--fs-color-odp-off-white-6);
+          [data-fs-link] {
+            text-decoration: none;
+            p,
+            p [data-fs-search-auto-complete-item-suggestion] {
+              color: var(--fs-color-odp-blue-0);
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
