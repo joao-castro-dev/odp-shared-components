@@ -4,13 +4,16 @@ import {
   useSearch,
 } from "@faststore/ui";
 
-import { SearchState } from "@faststore/sdk";
-
-import { formatSearchPath } from "src/sdk/search/formatSearchPath";
+// REVIEW LATER
+// import type { SearchState } from "@faststore/sdk";
 
 import styles from "./SearchAutoComplete.module.scss";
+import { SearchAutoCompleteProps } from "./SearchAutoCompleteTypes";
 
-const SearchAutoComplete = ({ sort }: { sort?: string }) => {
+const SearchAutoComplete = ({
+  sort,
+  handleFormatSearchPath,
+}: SearchAutoCompleteProps) => {
   const search = useSearch();
 
   if (!search?.values) {
@@ -35,16 +38,20 @@ const SearchAutoComplete = ({ sort }: { sort?: string }) => {
             icon={false}
             className={`${styles.autocomplete__term}`}
             linkProps={{
-              href: formatSearchPath({
-                term: suggestion,
-                sort: sort as SearchState["sort"],
+              href: handleFormatSearchPath({
+                term: { value: suggestion },
+                // REVIEW LATER
+                // sort: sort as SearchState["sort"],
+                sort: sort as any,
               }),
               onClick: () =>
                 onSearchSelection?.(
                   suggestion,
-                  formatSearchPath({
-                    term: suggestion,
-                    sort: sort as SearchState["sort"],
+                  handleFormatSearchPath({
+                    term: { value: suggestion },
+                    // REVIEW LATER
+                    // sort: sort as SearchState["sort"],
+                    sort: sort as any,
                   })
                 ),
             }}

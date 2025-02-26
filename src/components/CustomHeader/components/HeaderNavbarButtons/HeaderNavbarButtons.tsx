@@ -1,18 +1,6 @@
 import { FC, useState } from "react";
 
-import {
-  RegionBar,
-  IconButton,
-  Link,
-  NavbarButtons,
-  useUI,
-} from "@faststore/ui";
-import {
-  useCart_unstable as useCart,
-  useSession_unstable as useSession,
-  useCartToggleButton_unstable as useCartToggleButton,
-  // @ts-ignore next-line
-} from "@faststore/core/experimental";
+import { RegionBar, IconButton, Link, NavbarButtons } from "@faststore/ui";
 
 import ContactUs from "../ContactUs";
 
@@ -28,15 +16,24 @@ const HeaderNavbarButtons: FC<HeaderNavbarButtonsProps> = ({
   loginButton,
   contactUs,
   isMobile,
+  currency,
+  locale,
+  handleProductLink,
+  handleInitSearchState,
+  handleFormatSearchState,
+  handleSendAnalytics,
+  handleFormatSearchPath,
+  topSearchData,
+  cart,
+  session,
+  handleOpenModal,
+  handleToggleCart,
+  handleGetSuggestions,
+  handleAddToSearchHistory,
+  searchHistoryData,
+  handleClearSearchHistory,
 }) => {
   const [showChatDropdown, setShowChatDropdown] = useState(false);
-
-  const { openModal } = useUI();
-
-  const { person, postalCode } = useSession();
-  const cart = useCart();
-
-  const { onClick: toggleCart } = useCartToggleButton();
 
   return (
     <NavbarButtons
@@ -45,7 +42,22 @@ const HeaderNavbarButtons: FC<HeaderNavbarButtonsProps> = ({
       searchExpanded={false}
       data-testid="header-navbar-buttons"
     >
-      {isMobile && <SearchButtonMobile />}
+      {isMobile && (
+        <SearchButtonMobile
+          currency={currency}
+          locale={locale}
+          handleProductLink={handleProductLink}
+          handleInitSearchState={handleInitSearchState}
+          handleFormatSearchState={handleFormatSearchState}
+          handleSendAnalytics={handleSendAnalytics}
+          topSearchData={topSearchData}
+          handleFormatSearchPath={handleFormatSearchPath}
+          handleGetSuggestions={handleGetSuggestions}
+          handleAddToSearchHistory={handleAddToSearchHistory}
+          searchHistoryData={searchHistoryData}
+          handleClearSearchHistory={handleClearSearchHistory}
+        />
+      )}
 
       {navButtons && navButtons.length > 0 && (
         <>
@@ -74,9 +86,9 @@ const HeaderNavbarButtons: FC<HeaderNavbarButtonsProps> = ({
           data-fs-regionbar
           label="Set your location"
           editLabel="Delivery: "
-          postalCode={postalCode}
+          postalCode={session.postalCode}
           className={styles.mainHeader__regionBar}
-          onButtonClick={() => openModal()}
+          onButtonClick={() => handleOpenModal()}
           data-testid="header-navbar-buttons-region-bar"
         />
       )}
@@ -129,7 +141,7 @@ const HeaderNavbarButtons: FC<HeaderNavbarButtonsProps> = ({
         className={`${styles.navButtons__item} ${styles.navButtons__item__itemCart}`}
         iconPosition="right"
         onClick={() => {
-          toggleCart();
+          handleToggleCart();
         }}
       >
         <span
@@ -141,7 +153,11 @@ const HeaderNavbarButtons: FC<HeaderNavbarButtonsProps> = ({
         </span>
       </IconButton>
 
-      <LoginButton loginData={loginButton} person={person} />
+      <LoginButton
+        loginData={loginButton}
+        person={session.person}
+        isMobile={isMobile}
+      />
     </NavbarButtons>
   );
 };

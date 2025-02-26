@@ -50,7 +50,7 @@ const SearchProductItem = ({
     <div className={styles.productSugestions__wrapper}>
       <UISearchProductItem linkProps={linkProps} {...otherProps}>
         <UISearchProductItemImage>
-          {/* REVIEW THIS: SHOULD WE ADD NEXT TO THIS PACKAGE TO USE IMAGE FROM NEXT */}
+          {/* REVIEW LATER: SHOULD WE ADD NEXT TO THIS PACKAGE TO USE IMAGE FROM NEXT */}
           <img src={img.url} alt={img.alternateName} width={56} height={56} />
         </UISearchProductItemImage>
         <UISearchProductItemContent

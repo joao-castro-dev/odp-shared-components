@@ -10,6 +10,7 @@ export interface LoginButtonProps {
     mobileLogo: string;
     loggedOptions: LinksList[];
   };
+  isMobile: boolean;
   person: unknown;
 }
 export interface LinksList {

@@ -1,13 +1,17 @@
 import styles from "./login.module.scss";
 import React, { useState } from "react";
 import { LoginButtonProps, LinksList } from "./LoginButtonTypes";
-import RichText from "../../../utils/RichText";
-import useWindowDimensions from "../../../hooks/useWindowDimensions";
-import Image from "next/image";
+// REVIEW LATER
+// import Image from "next/image";
 import { Icon } from "@faststore/ui";
 import LoggedButton from "./LoggedButton";
+import RichText from "../../../RichText";
 
-export default function LoginButton({ person, loginData }: LoginButtonProps) {
+export default function LoginButton({
+  person,
+  loginData,
+  isMobile,
+}: LoginButtonProps) {
   const {
     mobileLogo,
     loginButton,
@@ -16,7 +20,6 @@ export default function LoginButton({ person, loginData }: LoginButtonProps) {
     registerText,
     listLinks,
   } = loginData;
-  const isMobile = useWindowDimensions();
 
   const [openTab, setOpenTab] = useState<Boolean>(false);
   const handleMouseEnter = () => {
@@ -44,7 +47,7 @@ export default function LoginButton({ person, loginData }: LoginButtonProps) {
     >
       <div className={styles.loginButton__container}>
         {isMobile || person ? (
-          <Image
+          <img
             className={styles.footerSocialMedia__icon}
             src={mobileLogo}
             alt="loginImage"

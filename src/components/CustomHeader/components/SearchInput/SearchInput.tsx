@@ -18,11 +18,6 @@ import {
   SearchInput as FSSearchInput,
   SearchInputField,
 } from "@faststore/ui";
-import {
-  useSearchHistory_unstable,
-  useSuggestions_unstable,
-  //@ts-ignore next-line
-} from "@faststore/core/experimental";
 
 import formatSearchPath from "./utils/formatSearchPath";
 import useOnClickOutside from "./utils/useOnClickOutside";
@@ -48,6 +43,15 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
       currency,
       locale,
       handleProductLink,
+      handleInitSearchState,
+      handleFormatSearchState,
+      handleSendAnalytics,
+      topSearchData,
+      handleFormatSearchPath,
+      handleAddToSearchHistory,
+      handleGetSuggestions,
+      searchHistoryData,
+      handleClearSearchHistory,
       ...otherProps
     },
     ref
@@ -59,7 +63,6 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
     const searchRef = useRef<HTMLDivElement>(null);
 
     const searchQueryDeferred = useDeferredValue(searchQuery);
-    const { addToSearchHistory } = useSearchHistory_unstable();
 
     useImperativeHandle(ref, () => ({
       resetSearchInput: () => setSearchQuery(""),
@@ -71,15 +74,15 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
       term,
       path
     ) => {
-      addToSearchHistory({ term, path });
-      sendSearchAnalytics(term);
+      handleAddToSearchHistory({ term, path });
+      sendSearchAnalytics(term, handleSendAnalytics);
       setSearchDropdownVisible(false);
       setSearchQuery(term);
     };
 
     useOnClickOutside(searchRef, () => setSearchDropdownVisible(false));
 
-    const { data, error } = useSuggestions_unstable(searchQueryDeferred);
+    const { data, error } = handleGetSuggestions(searchQueryDeferred);
 
     const isLoading = !error && !data;
 
@@ -110,6 +113,8 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
               term,
               // REVIEW LATER
               sort: sort as any, //SearchState["sort"],
+              handleInitSearchState,
+              handleFormatSearchState,
             });
 
             onSearchSelection(term, path);
@@ -135,6 +140,10 @@ const SearchInput = forwardRef<SearchInputRef, SearchInputProps>(
               currency={currency}
               locale={locale}
               handleProductLink={handleProductLink}
+              topSearchData={topSearchData}
+              handleFormatSearchPath={handleFormatSearchPath}
+              searchHistoryData={searchHistoryData}
+              handleClearSearchHistory={handleClearSearchHistory}
             />
           </Suspense>
         )}

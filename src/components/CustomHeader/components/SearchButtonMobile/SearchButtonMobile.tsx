@@ -2,12 +2,30 @@ import { useRef, useState } from "react";
 
 import Icons from "../../../Icons";
 import Modal from "../../../Modal";
-import type { SearchInputRef } from "../SearchInput/SearchInputTypes";
+import type {
+  FormattedSearchState,
+  SearchInputRef,
+  SearchState,
+} from "../SearchInput/SearchInputTypes";
 import SearchInput from "../SearchInput";
 
 import styles from "./SearchButtonMobile.module.scss";
+import { SearchButtonMobileProps } from "./SearchButtonMobileTypes";
 
-const SearchButtonMobile = () => {
+const SearchButtonMobile = ({
+  currency,
+  locale,
+  handleProductLink,
+  handleInitSearchState,
+  handleFormatSearchState,
+  handleSendAnalytics,
+  topSearchData,
+  handleFormatSearchPath,
+  handleGetSuggestions,
+  handleAddToSearchHistory,
+  searchHistoryData,
+  handleClearSearchHistory,
+}: SearchButtonMobileProps) => {
   const inputRef = useRef<SearchInputRef>(null);
   const [isSearchOpened, setIsSearchOpened] = useState(false);
 
@@ -27,6 +45,18 @@ const SearchButtonMobile = () => {
           data-fs-search
           className={styles.search__modal__input}
           data-testid="header-search-input"
+          currency={currency}
+          locale={locale}
+          handleProductLink={handleProductLink}
+          handleInitSearchState={handleInitSearchState}
+          handleFormatSearchState={handleFormatSearchState}
+          handleSendAnalytics={handleSendAnalytics}
+          topSearchData={topSearchData}
+          handleFormatSearchPath={handleFormatSearchPath}
+          handleGetSuggestions={handleGetSuggestions}
+          handleAddToSearchHistory={handleAddToSearchHistory}
+          searchHistoryData={searchHistoryData}
+          handleClearSearchHistory={handleClearSearchHistory}
         />
       </Modal>
     );

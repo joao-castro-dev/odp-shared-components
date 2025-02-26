@@ -26,6 +26,13 @@ export interface SearchDropdownProps {
     selectedOffer: number,
     index: number
   ) => { href: any; onClick: any; baseLinkProps: any };
+  handleFormatSearchPath: (data: { term: { value: string }; sort: any }) => any;
+  // REVIEW LATER
+  topSearchData: any;
+  // REVIEW LATER
+  searchHistoryData: any;
+  // REVIEW LATER
+  handleClearSearchHistory: any;
   otherProps?: Record<string, string | number | Object>;
 }
 

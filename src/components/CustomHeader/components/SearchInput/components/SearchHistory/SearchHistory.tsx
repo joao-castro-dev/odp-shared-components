@@ -3,28 +3,29 @@ import {
   SearchHistoryTerm as UISearchHistoryTerm,
   useSearch,
 } from "@faststore/ui";
-import useSearchHistory from "src/sdk/search/useSearchHistory";
-import { SearchHistoryItem } from "./SearchHistoryType";
+import { SearchHistoryItem, SearchHistoryProps } from "./SearchHistoryType";
 
 import styles from "./SearchHistory.module.scss";
 
-const SearchHistory = ({ ...props }) => {
+const SearchHistory = ({
+  searchHistoryData,
+  handleClearSearchHistory,
+  ...props
+}: SearchHistoryProps) => {
   const search = useSearch();
 
-  const { searchHistory, clearSearchHistory } = useSearchHistory();
-
-  if (!searchHistory.length) {
+  if (!searchHistoryData.length) {
     return null;
   }
 
   return (
     <UISearchHistory
       title="You Recently Searched:"
-      onClear={clearSearchHistory}
+      onClear={handleClearSearchHistory}
       className={`${styles.searchHistory}`}
       {...props}
     >
-      {searchHistory.map((item: SearchHistoryItem) => (
+      {searchHistoryData.map((item: SearchHistoryItem) => (
         <UISearchHistoryTerm
           key={item.term}
           value={item.term}

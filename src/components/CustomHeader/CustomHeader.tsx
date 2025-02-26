@@ -19,7 +19,30 @@ export function CustomHeader(props: CustomHeaderProps) {
   const scrollDirection = useScrollDirection();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
-  const { navButtons, region, contactUs, isMobile, menuData, currency } = props;
+  const {
+    navButtons,
+    region,
+    contactUs,
+    isMobile,
+    menuData,
+    currency,
+    locale,
+    handleProductLink,
+    handleInitSearchState,
+    handleFormatSearchState,
+    handleSendAnalytics,
+    handleFormatSearchPath,
+    topSearchData,
+    cart,
+    session,
+    handleOpenModal,
+    handleToggleCart,
+    handleGetSuggestions,
+    handleAddToSearchHistory,
+    searchHistoryData,
+    handleClearSearchHistory,
+    loginButton,
+  } = props;
 
   const handleOpenMenu = () => {
     setIsMenuOpened(!isMenuOpened);
@@ -79,6 +102,18 @@ export function CustomHeader(props: CustomHeaderProps) {
                   data-fs-search
                   className={styles.mainHeader__search}
                   data-testid="header-search-input"
+                  currency={currency}
+                  locale={locale}
+                  handleProductLink={handleProductLink}
+                  handleInitSearchState={handleInitSearchState}
+                  handleFormatSearchState={handleFormatSearchState}
+                  handleSendAnalytics={handleSendAnalytics}
+                  topSearchData={topSearchData}
+                  handleFormatSearchPath={handleFormatSearchPath}
+                  handleGetSuggestions={handleGetSuggestions}
+                  handleAddToSearchHistory={handleAddToSearchHistory}
+                  searchHistoryData={searchHistoryData}
+                  handleClearSearchHistory={handleClearSearchHistory}
                 />
               )}
 
@@ -86,8 +121,24 @@ export function CustomHeader(props: CustomHeaderProps) {
                 navButtons={navButtons}
                 region={region}
                 contactUs={contactUs}
-                loginButton={props.loginButton}
+                loginButton={loginButton}
                 isMobile={isMobile}
+                currency={currency}
+                locale={locale}
+                handleProductLink={handleProductLink}
+                handleInitSearchState={handleInitSearchState}
+                handleFormatSearchState={handleFormatSearchState}
+                handleSendAnalytics={handleSendAnalytics}
+                topSearchData={topSearchData}
+                handleFormatSearchPath={handleFormatSearchPath}
+                cart={cart}
+                session={session}
+                handleOpenModal={handleOpenModal}
+                handleToggleCart={handleToggleCart}
+                handleGetSuggestions={handleGetSuggestions}
+                handleAddToSearchHistory={handleAddToSearchHistory}
+                searchHistoryData={searchHistoryData}
+                handleClearSearchHistory={handleClearSearchHistory}
               />
             </div>
           </div>

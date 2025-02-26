@@ -1,3 +1,5 @@
+@import "../../../../utils/baseStyles.module.scss";
+
 .contactUs {
   &__wrapper {
     border: 1px solid var(--fs-color-odp-off-white-3);
@@ -41,7 +43,7 @@
     background-color: transparent;
   }
 
-  &__richText p{
+  &__richText p {
     height: 16px;
   }
 
@@ -78,7 +80,7 @@
   }
 
   &__wrapper.mobile {
-    @import "@faststore/ui/src/components/atoms/Button/styles.scss";
+    @import "~@faststore/ui/src/components/atoms/Button/styles.scss";
 
     width: 100%;
     top: 0px;

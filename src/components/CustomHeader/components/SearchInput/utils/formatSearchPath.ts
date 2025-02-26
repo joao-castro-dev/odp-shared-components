@@ -1,10 +1,13 @@
-import { formatSearchState, initSearchState } from "@faststore/sdk";
+import { FormatSearchPathProps } from "../SearchInputTypes";
 
-import { FormatSearchPath } from "../SearchInputTypes";
-
-const formatSearchPath = ({ term, sort }: FormatSearchPath) => {
-  const { pathname, search } = formatSearchState(
-    initSearchState({
+const formatSearchPath = ({
+  term,
+  sort,
+  handleInitSearchState,
+  handleFormatSearchState,
+}: FormatSearchPathProps) => {
+  const { pathname, search } = handleFormatSearchState(
+    handleInitSearchState({
       term,
       sort,
       base: "/s",

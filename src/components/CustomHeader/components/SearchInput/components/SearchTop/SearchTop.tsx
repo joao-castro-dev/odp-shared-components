@@ -4,17 +4,22 @@ import {
   useSearch,
 } from "@faststore/ui";
 
-import { SearchState } from "@faststore/sdk";
-import { formatSearchPath } from "src/sdk/search/formatSearchPath";
-import useTopSearch from "src/sdk/search/useTopSearch";
-import type { SearchTopProps } from "./SearchTopTypes";
-import { MAX_TOP_SEARCH_TERMS } from "../../utils/consts";
+// REVIEW LATER
+// import type { SearchState } from "@faststore/sdk";
 
-function SearchTop({ topTerms = [], sort, ...otherProps }: SearchTopProps) {
+import { MAX_TOP_SEARCH_TERMS } from "../../utils/consts";
+import { SearchTopProps } from "./SearchTopTypes";
+
+function SearchTop({
+  topTerms = [],
+  sort,
+  topSearchData,
+  handleFormatSearchPath,
+  ...otherProps
+}: SearchTopProps) {
   const search = useSearch();
 
-  const { data } = useTopSearch();
-  const terms = (data?.search.suggestions.terms ?? topTerms).slice(
+  const terms = (topSearchData?.search?.suggestions?.terms ?? topTerms).slice(
     0,
     MAX_TOP_SEARCH_TERMS
   );
@@ -31,16 +36,20 @@ function SearchTop({ topTerms = [], sort, ...otherProps }: SearchTopProps) {
           value={term.value}
           index={index}
           linkProps={{
-            href: formatSearchPath({
-              term: term.value,
-              sort: sort as SearchState["sort"],
+            href: handleFormatSearchPath({
+              term: term,
+              // REVIEW LATER
+              // sort: sort as SearchState["sort"],
+              sort: sort as any,
             }),
             onClick: () =>
               search?.values?.onSearchSelection?.(
                 term.value,
-                formatSearchPath({
-                  term: term.value,
-                  sort: sort as SearchState["sort"],
+                handleFormatSearchPath({
+                  term: term,
+                  // REVIEW LATER
+                  // sort: sort as SearchState["sort"],
+                  sort: sort as any,
                 })
               ),
           }}

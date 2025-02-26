@@ -59,8 +59,8 @@ export interface MenuData extends MenuDataSharedProps {
 }
 
 export interface CustomHeaderProps {
-  navbar: OverrideNavigationProps["searchInput"];
-  cart: OverrideNavigationProps["cartIcon"];
+  // navbar: OverrideNavigationProps["searchInput"];
+  // cart: OverrideNavigationProps["cartIcon"];
   logoLink: {
     text: string;
     url: string;
@@ -78,7 +78,6 @@ export interface CustomHeaderProps {
     enabled: boolean;
   };
   navButtons: NavButtons[];
-  menu: MenuData[];
   contactUs: ContactUsItem[];
   loginButton: LoginButtonProps;
   isMobile: boolean;
@@ -90,6 +89,34 @@ export interface CustomHeaderProps {
     selectedOffer: number,
     index: number
   ) => { href: any; onClick: any; baseLinkProps: any };
+  handleInitSearchState: (options: {
+    term: string;
+    sort?: SearchState["sort"];
+    base: string;
+  }) => SearchState;
+  handleFormatSearchState: (searchState: SearchState) => FormattedSearchState;
+  handleSendAnalytics: <
+    U extends { name: string; params: Record<string, any> }
+  >(
+    event: U
+  ) => void;
+  handleFormatSearchPath: (data: { term: { value: string }; sort: any }) => any;
+  // REVIEW LATER
+  topSearchData: any;
+  // REVIEW LATER
+  cart: any;
+  // REVIEW LATER
+  session: any;
+  // REVIEW LATER
+  handleOpenModal: any;
+  // REVIEW LATER
+  handleToggleCart: any;
+  handleAddToSearchHistory: (data: { term: string; path: string }) => void;
+  handleGetSuggestions: (searchQueryDeferred: any) => { data: any; error: any };
+  // REVIEW LATER
+  searchHistoryData: any;
+  // REVIEW LATER
+  handleClearSearchHistory: any;
 }
 
 //Mega Menu

@@ -1,9 +1,16 @@
-import sendAnalytics from "../../../../utils/sendAnalytics";
+// import type { SearchEvent } from "@faststore/sdk";
 
-import type { SearchEvent } from "@faststore/sdk";
-
-const sendSearchAnalytics = async (term: string) => {
-  sendAnalytics<SearchEvent>({
+const sendSearchAnalytics = async (
+  term: string,
+  handleSendAnalytics: <
+    U extends { name: string; params: Record<string, any> }
+  >(
+    event: U
+  ) => void
+) => {
+  // REVIEW LATER
+  // handleSendAnalytics<SearchEvent>({
+  handleSendAnalytics<any>({
     name: "search",
     params: { search_term: term },
   });

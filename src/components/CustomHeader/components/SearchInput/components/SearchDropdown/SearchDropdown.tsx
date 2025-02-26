@@ -11,6 +11,10 @@ function SearchDropdown({
   currency,
   locale,
   handleProductLink,
+  topSearchData,
+  handleFormatSearchPath,
+  searchHistoryData,
+  handleClearSearchHistory,
   ...otherProps
 }: SearchDropdownProps) {
   const search = useSearch();
@@ -20,13 +24,23 @@ function SearchDropdown({
 
   return (
     <UISearchDropdown {...otherProps}>
-      <SearchHistory sort={sort} />
+      <SearchHistory
+        searchHistoryData={searchHistoryData}
+        handleClearSearchHistory={handleClearSearchHistory}
+      />
       {/* Current Site doesn't have top searches, should we? */}
-      <SearchTop sort={sort} />
+      <SearchTop
+        sort={sort}
+        topSearchData={topSearchData}
+        handleFormatSearchPath={handleFormatSearchPath}
+      />
       {products.length > 0 && (
         <div>
           {/* Current Site doesn't have Suggested Products, should we? */}
-          <SearchAutoComplete sort={sort} />
+          <SearchAutoComplete
+            sort={sort}
+            handleFormatSearchPath={handleFormatSearchPath}
+          />
           <SearchProducts
             currency={currency}
             locale={locale}
