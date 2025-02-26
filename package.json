@@ -1,6 +1,6 @@
 {
   "name": "@joao-castro-dev/odp-shared-components",
-  "version": "0.12.35",
+  "version": "0.12.40",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -13,7 +13,7 @@
     "deploy": "npm run build && npm publish --access public"
   },
   "keywords": [
-    "Icons",
+    "VTEX",
     "Typescript",
     "React"
   ],
