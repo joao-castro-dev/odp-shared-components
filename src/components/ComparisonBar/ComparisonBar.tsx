@@ -79,7 +79,7 @@ export default function ComparisonBar(props: ComparisonBarProps) {
       <div className={styles.comparisonBar__content}>
         <p data-fs-comparisonBar-text>{helperText}</p>
 
-        {comparisonSkus.map((item) => (
+        {comparisonSkus.slice(0, 4).map((item) => (
           <div
             key={item.sku}
             data-fs-comparisonBar-item
@@ -124,7 +124,7 @@ export default function ComparisonBar(props: ComparisonBarProps) {
           </div>
         ))}
 
-        <Button variant="primary" onClick={handleCompareButtonClick}>
+        <Button variant="primary" onClick={handleCompareButtonClick} disabled={comparisonSkus.length < 2}>
           {compareButtonText}
         </Button>
         <Button variant="tertiary" onClick={removeAllComparisonSkus}>
