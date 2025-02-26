@@ -1,7 +1,7 @@
-import ProductName from "./components/ProductName";
-import ProductPrice from "./components/ProductPrice";
+import ComparisonBar from "./components/ComparisonBar/ComparisonBar";
+import ProductDetails from "./components/ProductDetails";
 
 export {
-  ProductName,
-  ProductPrice
+  ComparisonBar,
+  ProductDetails
 };

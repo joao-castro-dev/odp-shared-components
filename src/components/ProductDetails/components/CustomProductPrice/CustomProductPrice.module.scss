@@ -1,0 +1,24 @@
+.productDetails__price {
+  [data-fs-product-details-price],
+  [data-fs-product-details-promotion-price] {
+    font-size: var(--fs-text-size-5);
+    color: var(--fs-color-odp-red);
+    font-weight: var(--fs-text-weight-black);
+  }
+
+  [data-fs-product-details-promotion] {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    [data-fs-product-details-promotion-original],
+    [data-fs-product-details-promotion-savings] {
+      font-size: var(--fs-text-size-1);
+    }
+
+    [data-fs-product-details-promotion-savings] {
+      color: var(--fs-color-odp-red);
+      margin-left: 8px;
+    }
+  }
+}

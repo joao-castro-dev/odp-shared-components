@@ -1,0 +1,155 @@
+.comparisonBar {
+  @import "~@faststore/ui/src/styles/base/utilities.scss";
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 74px;
+  z-index: 99;
+
+  background-color: #f5f8fc;
+  border-top: 1px solid #f1f1f1;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    [data-fs-comparisonBar-text] {
+      margin-right: 20px;
+      font-size: 12px;
+    }
+
+    [data-fs-comparisonBar-item] {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #f1f2f3;
+      border-radius: 0.25rem;
+      cursor: pointer;
+
+      [data-fs-image] {
+        border-radius: 0.25rem;
+      }
+
+      [data-fs-button][data-fs-button-variant="tertiary"] {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 18px;
+        height: 18px;
+
+        [data-fs-button-wrapper] {
+          padding: 0;
+          width: 18px;
+          height: 18px;
+          --fs-button-border-width: 1px;
+          --fs-button-border-radius: 4px;
+          background-color: transparent;
+
+          [data-fs-icon] {
+            color: #000;
+          }
+        }
+      }
+
+      [data-fs-comparisonBar-modal] {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        position: absolute;
+        bottom: 80%;
+        left: -150px;
+        width: 300px;
+        height: auto;
+        padding: 1rem;
+        background-color: #fff;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        cursor: default;
+
+        [data-fs-comparisonBar-modal-content] {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          font-size: 12px;
+
+          [data-fs-link] {
+            text-decoration: none;
+            color: #273039;
+          }
+
+          [data-fs-modal-text] {
+            color: #525961;
+          }
+
+          [data-fs-modal-rating] {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+
+            [data-fs-rating] {
+              --fs-rating-color: #d38003;
+              fill: #d38003;
+            }
+          }
+        }
+
+        [data-fs-image] {
+          width: 65px;
+          height: 65px;
+        }
+      }
+    }
+
+    [data-fs-button][data-fs-button-variant="primary"]
+      div[data-fs-button-wrapper] {
+      margin-left: 5px;
+      height: 2.625rem;
+      padding: 0 1rem;
+      --fs-button-border-width: 1px;
+      --fs-button-border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #1e5a99;
+      color: #fff;
+      border-color: #1e5a99;
+    }
+
+    &:hover {
+      [data-fs-button-wrapper] {
+        --fs-button-primary-bkg-color-hover: #194a7e;
+        --fs-button-primary-text-color-hover: #fff;
+      }
+    }
+
+    [data-fs-button][data-fs-button-variant="tertiary"] {
+      [data-fs-button-wrapper] {
+        font-size: 16px;
+        font-weight: 400;
+        --fs-button-primary-text-color: #1e5a99;
+        background-color: transparent;
+      }
+
+      &:hover,
+      &:focus {
+        [data-fs-button-wrapper] {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+
+  @import "~@faststore/ui/src/styles/base/utilities";
+  @import "~@faststore/ui/src/components/atoms/Button/styles.scss";
+  @import "~@faststore/ui/src/components/molecules/Rating/styles.scss";
+}
