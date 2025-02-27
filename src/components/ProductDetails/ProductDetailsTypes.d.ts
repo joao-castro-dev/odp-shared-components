@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { ShippingSimulation } from "../../types/CustomShippingSimulation";
 
 interface ItemOffered {
   sku: string;
@@ -48,6 +49,8 @@ export interface ProductDetailsProps {
   cart: Cart;
   onInvalidQuantity: (data: OnInvalidRequestProps) => void;
   className?: string;
+  stock: number;
+  shippingSimulation: ShippingSimulation;
 }
 
 interface OnInvalidRequestProps {

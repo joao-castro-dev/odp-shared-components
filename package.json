@@ -1,6 +1,6 @@
 {
   "name": "@joao-castro-dev/odp-shared-components",
-  "version": "0.12.53",
+  "version": "0.21.107",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

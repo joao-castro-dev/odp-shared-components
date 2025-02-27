@@ -13,6 +13,7 @@ import CustomProductAlsoAvailableIn from "./components/CustomProductAlsoAvailabl
 import styles from "./ProductDetails.module.scss";
 import { ProductDetailsProps } from "./ProductDetailsTypes";
 import { isProductInCart } from "./utils/isProductInCart";
+import CustomShippingSimulation from "./components/CustomShippingSimulation/CustomShippingSimulation";
 
 export function ProductDetails({
   availability,
@@ -33,6 +34,8 @@ export function ProductDetails({
   buyProps,
   onInvalidQuantity,
   className,
+  stock,
+  shippingSimulation,
 }: ProductDetailsProps) {
   const [isInCart, setIsInCart] = React.useState(false);
 
@@ -81,7 +84,11 @@ export function ProductDetails({
             variations={[{ title: "Color" }, { title: "Pack" }]}
           />
           <CustomProductAlsoAvailableIn buttonTitle="Also Available In" />
-          <CustomProductShipping buttonTitle="Shipping" />
+          <CustomShippingSimulation
+            quantity={stock}
+            availability={availability}
+            shippingSimulation={shippingSimulation}
+          />
         </section>
       ) : (
         <Button variant="primary" disabled data-fs-buy-button-disabled>
