@@ -1,0 +1,25 @@
+.shippingSimulationSection {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--fs-product-details-vertical-spacing);
+
+  [data-fs-zipcode-wrapper],
+  [data-fs-no-stock-text] {
+    color: var(--fs-color-odp-gray-2);
+    font-size: var(--fs-text-size-1);
+    font-weight: var(--fs-text-weight-light);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--fs-spacing-2);
+
+    [data-fs-zipcode-title] {
+      font-weight: var(--fs-text-weight-bold);
+      font-size: var(--fs-text-size-2);
+    }
+
+    [data-fs-zipcode-quantity] {
+      color: var(--fs-color-odp-green);
+    }
+  }
+}
